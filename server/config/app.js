@@ -19,7 +19,7 @@ module.exports = function () {
         server.set('port', config.port);
 
 
-        //CORS
+        // CORS
         server.options('*', cors());
         server.use(function (req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
@@ -29,7 +29,7 @@ module.exports = function () {
         });
 
 
-        //middleware
+        // MIDDLEWARE
         server.use('/public', express.static(path.join(__dirname, '../', 'public')));
         server.use(bodyParser.json({
             limit: '50mb',
@@ -42,19 +42,11 @@ module.exports = function () {
             })
         );
 
-        mongoose.connect(db.database_vms_test, {useNewUrlParser: true, useCreateIndex: true, useFindAndModify:false})
+        mongoose.connect(db.database, {useNewUrlParser: true, useCreateIndex: true, useFindAndModify:false})
             .then((ress) => {
                 console.log('#####---> Mongo DB Connected!');
-                // pivotModel.updateMany({}, { date: "06-07-2019" }).then(()=>{
-                //     console.log("Update Successfully")
-                // }).catch((e)=>{
-                //     console.log("Exception caught",e.message)
-                // });
             })
             .catch(err => {console.log("Error *****: " + err);});
-
-
-        // userModel.deleteMany({type:2}).exec().then(()=>{console.log("user removed")}).catch((e)=>{console.log("problem in removal")});
 
         //Routes
         routes.init(server);
@@ -78,4 +70,5 @@ module.exports = function () {
         create: create,
         start: start
     };
+
 };
