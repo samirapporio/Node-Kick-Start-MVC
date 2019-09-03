@@ -26,7 +26,7 @@ const validateMerchantRegister = () => {
 
 const validateMerchantCreate = ()=>{
     return [
-        body('name').exists().withMessage('Name is required'),
+        body('name').exists().withMessage('Bhai tname to daal de '),
         body('logo').exists().withMessage('Logo is required'),
         body('type').exists().withMessage('Type is required'),
         body('pin').exists().withMessage('pin is required'),

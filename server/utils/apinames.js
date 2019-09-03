@@ -30,6 +30,7 @@ const ROUTES_TYPES = {
 
 
 const apinames = {
+
     CREATE_MERCHANT_2: {
         name: "Create Merchant 2",
         posting_script: true,
@@ -39,6 +40,8 @@ const apinames = {
         url:base_url+"api/v1/"+ROUTES_TYPES.MERCHANT+"/register",
         description: "Api For creating Merchant, This API is normally used for creating merchant like some Embassy that wil be only implemented at master admin side"
     },
+
+
     MERCHANT_LOGIN: {
         name: "Merchant Login",
         posting_script: true,

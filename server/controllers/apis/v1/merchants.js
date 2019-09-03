@@ -18,3 +18,4 @@ router.get('/cofiguration',authMiddleware.authClientToken,  merchantService.getC
 router.get('/list',merchantService.getAllMerchants)
 
 module.exports = router;
+

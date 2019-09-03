@@ -31,6 +31,7 @@ module.exports = function () {
 
         // MIDDLEWARE
         server.use('/public', express.static(path.join(__dirname, '../', 'public')));
+
         server.use(bodyParser.json({
             limit: '50mb',
             extended: true
@@ -47,6 +48,12 @@ module.exports = function () {
                 console.log('#####---> Mongo DB Connected!');
             })
             .catch(err => {console.log("Error *****: " + err);});
+
+
+
+
+
+
 
         //Routes
         routes.init(server);

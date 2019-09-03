@@ -51,7 +51,9 @@ const register = (req, res) => {
 
 
 const create = async (req, res )=>{
+
     validateIncomingData(apinames.CREATE_MERCHANT, req, res);
+
     try{
         const merchant = await merchantModel.create({
             name: req.body.name,
@@ -64,12 +66,13 @@ const create = async (req, res )=>{
         if(!merchant){
             failedResponse(apinames.CREATE_MERCHANT,"Merchant not create", [],response_status.CONFLICT, req, res)
         }
-        successResponse(apinames.CREATE_MERCHANT, "Merchant created successfully ",merchant, response_status.CREATED, req, res);
+        successResponse(apinames.lovish_API, "Merchant created successfully ",merchant, response_status.CREATED, req, res);
     }catch (e) {
         exceptionResponse(apinames.CREATE_MERCHANT,e,req, res)
     }
 
 }
+
 
 const getConfiguration = async (req, res)=>{
 
